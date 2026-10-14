@@ -1,4 +1,4 @@
-# All blobs are extracted from Sony Xperia 1 V (pdx234) sssi-user 14 67.1.A.2.287
+# All blobs are extracted from Sony Xperia 1 V (pdx234) sssi-user 15 67.2.A.3.178
 
 # Dolby Audio Codec2
 vendor/bin/hw/vendor.dolby.media.c2@1.0-service
