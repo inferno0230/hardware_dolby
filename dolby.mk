@@ -39,5 +39,9 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PACKAGES += \
     DolbyManager
 
+# Codec2
+PRODUCT_PACKAGES += \
+    vendor.dolby.media.c2@1.0-service
+
 # Proprietary-files
 $(call inherit-product, $(DOLBY_PATH)/dolby-vendor.mk)
