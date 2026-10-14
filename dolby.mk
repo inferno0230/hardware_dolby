@@ -17,10 +17,6 @@
 # Dolby path
 DOLBY_PATH := hardware/dolby
 
-# Soong Namespace
-PRODUCT_SOONG_NAMESPACES += \
-   $(DOLBY_PATH)
-
 # SEPolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DOLBY_PATH)/sepolicy/vendor
 
@@ -44,25 +40,4 @@ PRODUCT_PACKAGES += \
     DolbyManager
 
 # Proprietary-files
-PRODUCT_COPY_FILES += \
-    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.hardware.dms@2.0-service.rc \
-    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.c2@1.0-service.rc
-
-PRODUCT_PACKAGES += \
-    vendor.dolby.hardware.dms@2.0-impl \
-    vendor.dolby.hardware.dms@2.0 \
-    vendor.dolby.hardware.dms@2.0-service \
-    vendor.dolby.media.c2@1.0-service \
-    libcodec2_soft_ac4dec \
-    libcodec2_soft_ddpdec \
-    libcodec2_soft_dolby \
-    libcodec2_store_dolby \
-    libdapparamstorage \
-    libdeccfg \
-    libdlbdsservice \
-    libdlbpreg \
-    libdlbvol \
-    libswdap \
-    libswgamedap \
-    libswvqe 
-
+$(call inherit-product, $(DOLBY_PATH)/dolby-vendor.mk)
