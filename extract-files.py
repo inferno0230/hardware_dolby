@@ -32,6 +32,8 @@ lib_fixups: lib_fixups_user_type = {
 
 blob_fixups: blob_fixups_user_type = {
     (
+        'vendor/lib/libdlbpreg.so',
+        'vendor/lib/soundfx/libdlbvol.so',
         'vendor/lib64/libcodec2_soft_ac4dec.so',
         'vendor/lib64/libcodec2_soft_ddpdec.so',
         'vendor/lib64/libcodec2_soft_dolby.so',
@@ -40,6 +42,13 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/soundfx/libdlbvol.so',
     ): blob_fixup()
         .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
+    'vendor/lib/soundfx/libswdap.so': blob_fixup()
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so')
+        # DlbGenClass2::propIsMatched: mov r0, r7 -> movs r0, #1
+        .binary_regex_replace(
+            rb'\x81\x42\x03\xd1\x38\x46\x4d\xb0\xbd\xe8\xf0\x8f',
+            b'\x81\x42\x03\xd1\x01\x20\x4d\xb0\xbd\xe8\xf0\x8f',
+        ),
     'vendor/lib64/soundfx/libswdap.so': blob_fixup()
         .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so')
         # DlbGenClass2::propIsMatched: mov w0, w19 -> mov w0, #1

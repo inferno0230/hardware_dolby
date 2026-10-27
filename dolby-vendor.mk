@@ -9,18 +9,18 @@ PRODUCT_COPY_FILES += \
     hardware/dolby/proprietary/vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
 
 PRODUCT_PACKAGES += \
-    libcodec2_soft_ac4dec \
-    libcodec2_soft_ddpdec \
-    libcodec2_soft_dolby \
-    libcodec2_store_dolby \
     libdapparamstorage \
-    libdeccfg \
-    libdlbdsservice \
     libdlbpreg \
     libdlbvol \
     libswdap \
     libswgamedap \
     libswvqe \
-    vendor.dolby.hardware.dms@2.0-impl \
     vendor.dolby.hardware.dms@2.0 \
+    libcodec2_soft_ac4dec \
+    libcodec2_soft_ddpdec \
+    libcodec2_soft_dolby \
+    libcodec2_store_dolby \
+    libdeccfg \
+    libdlbdsservice \
+    vendor.dolby.hardware.dms@2.0-impl \
     vendor.dolby.hardware.dms@2.0-service
